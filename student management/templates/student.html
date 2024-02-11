@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Students
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center"><span>Add Student Details</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+<form action="/addstudent" method="post">
+<div class="form-group">
+
+<label for="rollno">Roll Number</label>
+<input type="text" class="form-control" name="rollno" id="rollno">
+</div>
+<br>
+<div class="form-group">
+
+<label for="sname">Student Name</label>
+<input type="text" class="form-control" name="sname" id="sname">
+</div>
+<br>
+
+<div class="form-group">                          
+<select  class="form-control" id="gender" name="gender"  required>
+        <option selected>Select Gender</option>
+    
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+       
+      </select>
+ </div>
+<br>
+
+<div class="form-group">
+
+  <label for="physics">Physics</label>
+  <input type="number" class="form-control" name="physics" id="physics" value="0">
+  </div>
+  <br>
+
+  <div class="form-group">
+
+    <label for="chemistry">Chemistry</label>
+    <input type="number" class="form-control" name="chemistry" id="chemistry" value="0">
+    </div>
+    <br>
+    <div class="form-group">
+
+      <label for="maths">Maths</label>
+      <input type="number" class="form-control" name="maths" id="maths" value="0">
+      </div>
+      <br>
+
+      <div class="form-group">
+
+        <label for="english">English</label>
+        <input type="number" class="form-control" name="english" id="english" value="0">
+        </div>
+        <br>
+
+        <div class="form-group">
+
+          <label for="computer">Computer</label>
+          <input type="number" class="form-control" name="computer" id="computer" value="0">
+          </div>
+          <br>
+
+
+  
+  <button type="submit" class="btn btn-danger btn-sm btn-block">Add Record</button>
+</form>
+<br>
+<br>
+
+</div>
+
+<div class="col-md-4"></div>
+
+</div></div>
+
+
+
+{% endblock body %}
